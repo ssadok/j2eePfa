@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <datasources xmlns="http://www.jboss.org/ironjacamar/schema"
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation="http://www.jboss.org/ironjacamar/schema http://docs.jboss.org/ironjacamar/schema/datasources_1_0.xsd">
-   <datasource jndi-name="java:/chiffres-lettres-DS"
+ <datasource jndi-name="java:/chiffres-lettres-DS"
       pool-name="quizz" enabled="true"
       use-java-context="true">
       <connection-url>jdbc:mysql://localhost:3306/chiffreslettresDB</connection-url>

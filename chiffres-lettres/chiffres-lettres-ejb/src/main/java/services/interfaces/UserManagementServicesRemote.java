@@ -1,7 +1,5 @@
 package services.interfaces;
 
-import java.util.List;
-
 import javax.ejb.Remote;
 
 import domain.User;

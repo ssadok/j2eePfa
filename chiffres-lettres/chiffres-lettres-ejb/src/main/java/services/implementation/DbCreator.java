@@ -1,14 +1,13 @@
 package services.implementation;
 
-import java.nio.file.FileStore;
-
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import domain.*;
+import domain.Player;
+import domain.User;
 
 /**
  * Session Bean implementation class DbCreator
