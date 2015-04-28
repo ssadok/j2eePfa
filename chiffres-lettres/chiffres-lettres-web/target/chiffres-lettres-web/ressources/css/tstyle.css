@@ -1,0 +1,8 @@
+##lettresTable
+{
+	border-collapse: collapse;
+}
+#lettresTable td{
+  width: 50px;
+  border: 1px solid black;
+}
