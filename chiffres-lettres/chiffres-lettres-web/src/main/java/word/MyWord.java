@@ -35,29 +35,34 @@ public class MyWord {
 	}
 	public int[] comparePositon(String os)
 	{
-		int[] compArr;
+		HashMap<Character,Integer> hm = new HashMap<Character,Integer>(this.hm);
+		int[] compArr = new int[]{-1,-1,-1,-1,-1,-1,-1};
 		int compV = compare(os);
 		if(compV == 1)
 			compArr = new int[]{1,1,1,1,1,1,1};
-		else if (compV == -1)
-			compArr = new int[]{-1,-1,-1,-1,-1,-1,-1};
 		else
 		{
-			compArr = new int[7];
+			char charAt;
+			int nbChar;
 			for(int i = 0; i < os.length(); i++)
 			{
-				char charAt = os.charAt(i);
-				int nbChar;
+				charAt = os.charAt(i);
+				if(charAt == myWord.charAt(i))
+				{
+					hm.put(charAt, hm.get(charAt)-1);
+					compArr[i] = 1;
+				}
+			}
+			for(int i = 0; i < os.length(); i++)
+			{
+				charAt = os.charAt(i);
 				if(hm.containsKey(charAt) && (nbChar = hm.get(charAt)) > 0)
 				{
+					//System.out.println(charAt + " = " + nbChar + "\n");
 					hm.put(charAt, nbChar-1);
-					if(charAt == myWord.charAt(i))
-						compArr[i] = 1;
-					else
+					if(compArr[i] == -1 && charAt != myWord.charAt(i))
 						compArr[i] = 0;
 				}
-				else
-					compArr[i] = -1;
 					
 			}
 		}
