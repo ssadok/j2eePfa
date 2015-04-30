@@ -1,7 +1,8 @@
-	#lettresTable
+#lettresTable
 	{
 		border-collapse: collapse;
 		border-color : white;
+		border: 1;
 	}
 	#lettresTable tr td
 	{
@@ -19,9 +20,14 @@
 	}
 	hr{
 		padding: 0px;
-		margin-top: 30px;
 		width: 75%;
 		align: center;
+	}
+	.emptyhr{
+		margin-top: 30px;
+	}
+	.notemptyhr{
+		margin-top: -5px;
 	}
 	#lettresTable tr
 	{
@@ -34,4 +40,15 @@
 		background: linear-gradient(to bottom,  #1e5799 0%,#207cca 39%,#207cca 39%,#2989d8 50%,#7db9e8 100%); /* W3C */
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
 
+	}
+	.place {
+		width: 40px;
+		height: 40px;
+		border-radius:50px;
+		text-align:center;
+		background-image: -moz-radial-gradient(45px 45px 45deg, circle cover, yellow 0%, orange 100%, red 95%);
+		background-image: -webkit-radial-gradient(45px 45px, circle cover, yellow, orange);
+	}
+	.true {
+		background: linear-gradient(0deg, red, DarkRed );
 	}

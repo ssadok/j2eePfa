@@ -4,6 +4,9 @@ import java.util.HashMap;
 
 public class MyWord {
 	private String myWord;
+	public String getMyWord() {
+		return myWord;
+	}
 	private HashMap<Character,Integer> hm;
 	public MyWord(String myWord) throws IllegalArgumentException
 	{
@@ -11,7 +14,7 @@ public class MyWord {
 			throw new IllegalArgumentException("myWord can not be null");
 		else if (myWord.length() != 7)
 			throw new IllegalArgumentException(String.format("The length of myWord must be 7\nThe word is %s\nThe lenght is %d",myWord,myWord.length()));
-		this.myWord = myWord;
+		this.myWord = myWord.toUpperCase();
 		stringToHM();
 	}
 	private void stringToHM()
@@ -36,12 +39,13 @@ public class MyWord {
 	public int[] comparePositon(String os)
 	{
 		HashMap<Character,Integer> hm = new HashMap<Character,Integer>(this.hm);
-		int[] compArr = new int[]{-1,-1,-1,-1,-1,-1,-1};
+		int[] compArr = new int[]{0,-1,-1,-1,-1,-1,-1,-1};
 		int compV = compare(os);
 		if(compV == 1)
-			compArr = new int[]{1,1,1,1,1,1,1};
+			compArr = new int[]{1,1,1,1,1,1,1,1};
 		else
 		{
+			compArr[0]=1;
 			char charAt;
 			int nbChar;
 			for(int i = 0; i < os.length(); i++)
@@ -50,7 +54,7 @@ public class MyWord {
 				if(charAt == myWord.charAt(i))
 				{
 					hm.put(charAt, hm.get(charAt)-1);
-					compArr[i] = 1;
+					compArr[i+1] = 1;
 				}
 			}
 			for(int i = 0; i < os.length(); i++)
@@ -60,8 +64,8 @@ public class MyWord {
 				{
 					//System.out.println(charAt + " = " + nbChar + "\n");
 					hm.put(charAt, nbChar-1);
-					if(compArr[i] == -1 && charAt != myWord.charAt(i))
-						compArr[i] = 0;
+					if(compArr[i+1] == -1 && charAt != myWord.charAt(i))
+						compArr[i+1] = 0;
 				}
 					
 			}

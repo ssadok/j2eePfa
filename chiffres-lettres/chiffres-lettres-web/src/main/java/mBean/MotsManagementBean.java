@@ -1,6 +1,11 @@
 package mBean;
+import java.util.Arrays;
+
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.json.JsonArray;
+
+import org.primefaces.json.JSONArray;
 
 import services.interfaces.MotsManagementServicesLocal;
 import word.MyWord;
@@ -22,6 +27,10 @@ public class MotsManagementBean {
 		}
 		return myWord.getFirstChar();
 	}
-
+	public String doVerifyWord(String word)
+	{
+		JSONArray ja = new JSONArray(Arrays.asList(word));
+		return ja.toString();		
+	}
 
 }
